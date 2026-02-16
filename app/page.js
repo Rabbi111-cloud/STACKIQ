@@ -51,6 +51,19 @@ export default function Home() {
             </div>
           ))}
         </section>
+  <button
+  onClick={() => window.location.href="/signup"}
+  className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold"
+>
+  Take Free Skill Test
+</button>
+
+<button
+  onClick={() => window.location.href="/login"}
+  className="border border-gray-600 hover:border-white px-6 py-3 rounded-xl"
+>
+  Hire Verified Developers
+</button>
 
         {/* CTA */}
         <section className="mt-32 text-center">
