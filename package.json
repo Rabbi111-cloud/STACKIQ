@@ -1,5 +1,5 @@
 {
-  "name": "stackverified",
+  "name": "stackiq",
   "private": true,
   "scripts": {
     "dev": "next dev",
