@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
       <main className="px-6 md:px-16 py-20">
         {/* HERO */}
         <section className="text-center max-w-4xl mx-auto">
@@ -23,10 +22,16 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold">
+            <button
+              onClick={() => (window.location.href = "/signup")}
+              className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold"
+            >
               Take Free Skill Test
             </button>
-            <button className="border border-gray-600 hover:border-white px-6 py-3 rounded-xl">
+            <button
+              onClick={() => (window.location.href = "/login")}
+              className="border border-gray-600 hover:border-white px-6 py-3 rounded-xl"
+            >
               Hire Verified Developers
             </button>
           </div>
@@ -53,31 +58,20 @@ export default function Home() {
             </div>
           ))}
         </section>
-  <button
-  onClick={() => window.location.href="/signup"}
-  className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold"
->
-  Take Free Skill Test
-</button>
-
-<button
-  onClick={() => window.location.href="/login"}
-  className="border border-gray-600 hover:border-white px-6 py-3 rounded-xl"
->
-  Hire Verified Developers
-</button>
 
         {/* CTA */}
         <section className="mt-32 text-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Start Building Your Verified Backend Profile Today.
           </h2>
-          <button className="mt-8 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-2xl font-semibold text-lg">
+          <button
+            onClick={() => (window.location.href = "/signup")}
+            className="mt-8 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-2xl font-semibold text-lg"
+          >
             Get Started Free
           </button>
         </section>
       </main>
-
       <Footer />
     </>
   );
