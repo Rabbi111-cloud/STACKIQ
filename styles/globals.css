@@ -13,6 +13,42 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== Animations for Form Cards ===== */
+.form-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transform: translateY(-30px);
+  opacity: 0;
+  animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Input Focus Glow */
+.form-card input:focus {
+  outline: none;
+  border-color: #7f5af0;
+  box-shadow: 0 0 10px rgba(127,90,240,0.5);
+}
+
+/* Button Glow on Hover */
+.btn-primary:hover {
+  background: #9671f5;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(127,90,240,0.8);
+}
+
 /* ===== Navbar ===== */
 .navbar {
   display: flex;
