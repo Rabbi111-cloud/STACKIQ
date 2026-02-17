@@ -1,6 +1,10 @@
 export default function Signup() {
   return (
     <div className="form-container">
+      {/* Floating blobs */}
+      <div className="blob blob1"></div>
+      <div className="blob blob2"></div>
+
       <div className="form-card">
         <h2>Create Account</h2>
         <input type="email" placeholder="Email" />
@@ -13,3 +17,4 @@ export default function Signup() {
     </div>
   );
 }
+
