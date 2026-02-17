@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Must be the very first line for client-side hooks
 
 import { useState } from "react";
 import { auth } from "../../lib/firebase";
@@ -12,9 +12,15 @@ export default function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
+    setError(""); // reset error
+    if (!email || !password) {
+      setError("Please fill in both fields.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/profile"); // redirect to profile after login
+      router.push("/profile"); // redirect after successful login
     } catch (err) {
       setError(err.message);
     }
@@ -22,12 +28,19 @@ export default function Login() {
 
   return (
     <div className="form-container">
+      {/* Floating gradient blobs */}
       <div className="blob blob1"></div>
       <div className="blob blob2"></div>
 
       <div className="form-card">
         <h2>Welcome Back</h2>
-        {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
+
+        {error && (
+          <p style={{ color: "red", marginBottom: "10px", textAlign: "center" }}>
+            {error}
+          </p>
+        )}
+
         <input
           type="email"
           placeholder="Email"
@@ -40,9 +53,25 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="btn btn-primary" onClick={handleLogin}>Login</button>
-        <p style={{ marginTop: '20px', textAlign: 'center', color: '#ccc', fontSize: '0.9rem' }}>
-          Don't have an account? <a href="/signup" style={{ color: '#7f5af0', textDecoration: 'none' }}>Sign Up</a>
+        <button className="btn btn-primary" onClick={handleLogin}>
+          Login
+        </button>
+
+        <p
+          style={{
+            marginTop: "20px",
+            textAlign: "center",
+            color: "#ccc",
+            fontSize: "0.9rem",
+          }}
+        >
+          Don't have an account?{" "}
+          <a
+            href="/signup"
+            style={{ color: "#7f5af0", textDecoration: "none" }}
+          >
+            Sign Up
+          </a>
         </p>
       </div>
     </div>
