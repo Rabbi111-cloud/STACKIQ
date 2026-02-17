@@ -2,23 +2,23 @@
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center px-6 md:px-16 py-6 border-b border-zinc-800 backdrop-blur-md">
-      <h1 className="text-2xl font-bold gradient-text">StackVerified</h1>
+    <nav className="flex justify-between items-center px-6 md:px-20 py-6 bg-white border-b border-gray-200">
+      <h1 className="text-2xl font-bold text-primary">StackVerified</h1>
 
-      <div className="hidden md:flex gap-10 text-gray-400 text-sm">
-        <a href="#" className="hover:text-white transition">Features</a>
-        <a href="#" className="hover:text-white transition">Developers</a>
-        <a href="#" className="hover:text-white transition">Companies</a>
-        <a href="#" className="hover:text-white transition">Pricing</a>
+      <div className="hidden md:flex gap-10 text-slate-600 text-sm">
+        <a href="#" className="hover:text-primary transition">Features</a>
+        <a href="#" className="hover:text-primary transition">Developers</a>
+        <a href="#" className="hover:text-primary transition">Companies</a>
+        <a href="#" className="hover:text-primary transition">Pricing</a>
       </div>
 
       <div className="flex gap-4">
-        <a href="/login" className="text-gray-400 hover:text-white transition">
+        <a href="/login" className="text-slate-600 hover:text-primary">
           Login
         </a>
         <a
           href="/signup"
-          className="bg-primary hover:bg-blue-700 px-5 py-2 rounded-xl font-semibold transition"
+          className="bg-primary text-white px-5 py-2 rounded-xl font-semibold hover:opacity-90 transition"
         >
           Get Started
         </a>
