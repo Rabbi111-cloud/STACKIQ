@@ -5,3 +5,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background: #0a0a0a;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
