@@ -1,75 +1,105 @@
 export default function Home() {
   return (
-    <main className="min-h-screen text-white px-6 md:px-20 py-24">
+    <main className="bg-black text-white overflow-hidden">
 
-      {/* NAV */}
-      <nav className="flex justify-between items-center mb-24">
-        <h1 className="text-2xl font-bold tracking-tight">
-          Stack<span className="text-indigo-400">IQ</span>
-        </h1>
+      {/* Gradient Background Glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-indigo-600/20 to-blue-600/30 blur-3xl opacity-40 pointer-events-none"></div>
 
-        <div className="flex gap-6 text-sm">
-          <a href="/login" className="hover:text-indigo-300 transition">
-            Login
-          </a>
-          <a
-            href="/signup"
-            className="bg-indigo-500 hover:bg-indigo-600 px-5 py-2 rounded-xl font-semibold transition"
-          >
+      {/* NAVBAR */}
+      <nav className="relative z-10 flex justify-between items-center px-10 py-6 backdrop-blur-xl bg-white/5 border-b border-white/10">
+        <h1 className="text-2xl font-bold tracking-tight">StackVerified</h1>
+
+        <div className="flex gap-6 items-center">
+          <a href="#features" className="text-gray-300 hover:text-white transition">Features</a>
+          <a href="#pricing" className="text-gray-300 hover:text-white transition">Pricing</a>
+          <a href="/login" className="text-gray-300 hover:text-white transition">Login</a>
+          <a href="/signup" className="px-5 py-2 rounded-lg bg-white text-black font-semibold hover:scale-105 transition">
             Get Started
           </a>
         </div>
       </nav>
 
-      {/* HERO */}
-      <section className="text-center max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-          Prove Your Backend Skills
-          <span className="block text-indigo-400 mt-4">
-            With AI Precision
-          </span>
-        </h1>
+      {/* HERO SECTION */}
+      <section className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-6">
 
-        <p className="mt-8 text-lg text-slate-300 max-w-2xl mx-auto">
-          The next-generation developer verification platform that uses AI
-          to evaluate real backend engineering ability.
+        <h2 className="text-6xl md:text-7xl font-bold leading-tight max-w-4xl bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+          Verify Backend Developers
+          <br /> With AI Precision
+        </h2>
+
+        <p className="mt-6 text-gray-400 text-lg max-w-2xl">
+          Intelligent backend skill testing powered by real-world challenges,
+          automated grading, and AI-driven analysis.
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6">
+        <div className="mt-10 flex gap-6">
           <a
             href="/signup"
-            className="bg-indigo-500 hover:bg-indigo-600 px-8 py-4 rounded-2xl font-semibold text-lg transition shadow-lg shadow-indigo-500/30"
+            className="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition"
           >
-            Start Free Assessment
+            Start Free Trial
           </a>
 
           <a
-            href="/login"
-            className="border border-slate-600 hover:border-indigo-400 px-8 py-4 rounded-2xl text-lg transition"
+            href="#features"
+            className="px-8 py-4 rounded-xl border border-white/20 hover:bg-white/10 transition"
           >
-            Recruit Developers
+            See How It Works
           </a>
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section className="mt-40 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {[
-          "AI Code Evaluation",
-          "Real Backend Challenges",
-          "Verified Developer Profiles",
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-indigo-400 transition"
-          >
-            <h3 className="text-xl font-semibold mb-4">{item}</h3>
-            <p className="text-slate-400 text-sm">
-              Built for serious backend engineers who want to stand out.
+      {/* FEATURES SECTION */}
+      <section id="features" className="relative z-10 py-32 px-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-2xl hover:scale-105 transition">
+            <h3 className="text-xl font-semibold mb-4">Real-World Challenges</h3>
+            <p className="text-gray-400">
+              Test backend engineers using production-style API tasks and architecture problems.
             </p>
           </div>
-        ))}
+
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-2xl hover:scale-105 transition">
+            <h3 className="text-xl font-semibold mb-4">AI Evaluation</h3>
+            <p className="text-gray-400">
+              Automatically score code quality, logic, scalability, and security.
+            </p>
+          </div>
+
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-2xl hover:scale-105 transition">
+            <h3 className="text-xl font-semibold mb-4">Instant Reports</h3>
+            <p className="text-gray-400">
+              Generate detailed skill breakdowns in seconds for hiring decisions.
+            </p>
+          </div>
+
+        </div>
       </section>
+
+      {/* CTA SECTION */}
+      <section className="relative z-10 py-32 text-center px-6">
+        <h2 className="text-5xl font-bold mb-6">
+          Hire Smarter. Faster.
+        </h2>
+
+        <p className="text-gray-400 mb-10">
+          Stop guessing developer skills. Start verifying them.
+        </p>
+
+        <a
+          href="/signup"
+          className="px-10 py-5 rounded-xl bg-white text-black font-semibold text-lg hover:scale-105 transition"
+        >
+          Get Started Today
+        </a>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="relative z-10 border-t border-white/10 py-10 text-center text-gray-500">
+        © 2026 StackVerified. All rights reserved.
+      </footer>
+
     </main>
   );
 }
