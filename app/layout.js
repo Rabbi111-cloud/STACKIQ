@@ -1,7 +1,9 @@
+"use client";
+
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "StackVerified",
+  title: "STACKIQ",
   description: "AI-Verified Backend Skills. Trusted by Companies.",
 };
 
