@@ -13,17 +13,17 @@ export default function Signup() {
           <input
             type="text"
             placeholder="Full Name"
-            className="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white"
+            className="px-5 py-4 rounded-2xl bg-zinc-900 border border-zinc-700 focus:border-primary focus:outline-none text-white"
           />
           <input
             type="email"
             placeholder="Email"
-            className="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white"
+            className="px-5 py-4 rounded-2xl bg-zinc-900 border border-zinc-700 focus:border-primary focus:outline-none text-white"
           />
           <input
             type="password"
             placeholder="Password"
-            className="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white"
+            className="px-5 py-4 rounded-2xl bg-zinc-900 border border-zinc-700 focus:border-primary focus:outline-none text-white"
           />
           <button className="bg-blue-600 hover:bg-blue-700 px-4 py-3 rounded-xl font-semibold">
             Sign Up
