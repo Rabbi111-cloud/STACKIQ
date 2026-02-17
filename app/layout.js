@@ -1,14 +1,17 @@
 import "../styles/globals.css";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "STACKIQ",
-  description: "AI-Verified Backend Skills. Trusted by Companies.",
+  title: "StackVerified",
+  description: "AI-Verified Backend Skills.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white min-h-screen">
+      <body className={`${inter.className} bg-gray-50 text-slate-800`}>
         {children}
       </body>
     </html>
