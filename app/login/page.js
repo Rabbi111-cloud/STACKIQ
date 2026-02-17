@@ -1,6 +1,10 @@
 export default function Login() {
   return (
     <div className="form-container">
+      {/* Floating blobs */}
+      <div className="blob blob1"></div>
+      <div className="blob blob2"></div>
+
       <div className="form-card">
         <h2>Welcome Back</h2>
         <input type="email" placeholder="Email" />
