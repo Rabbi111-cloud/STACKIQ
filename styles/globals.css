@@ -75,6 +75,39 @@ body {
   color: #7f5af0;
 }
 
+/* Floating Gradient Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  animation: float 20s infinite alternate;
+  z-index: 0; /* Behind form cards */
+}
+
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #7f5af0, #0ea5e9);
+  top: -100px;
+  left: -100px;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #f43f5e, #f97316);
+  bottom: -150px;
+  right: -150px;
+  animation-duration: 25s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(20px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
 /* ===== Hero ===== */
 .hero {
   position: relative;
