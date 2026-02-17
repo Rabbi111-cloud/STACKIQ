@@ -7,8 +7,14 @@ export default function Home() {
       <Navbar />
 
       <section className="hero">
-        <h1>Verify Backend Developers <br/> With AI Precision</h1>
+        {/* Floating Blobs */}
+        <div className="blob blob1"></div>
+        <div className="blob blob2"></div>
+
+        {/* Hero Content */}
+        <h1>Verify Backend Developers <br /> With AI Precision</h1>
         <p>Intelligent backend skill testing powered by real-world challenges, automated grading, and AI-driven analysis.</p>
+
         <div className="buttons">
           <a href="/signup" className="btn btn-primary">Start Free Trial</a>
           <a href="#features" className="btn btn-secondary">See How It Works</a>
