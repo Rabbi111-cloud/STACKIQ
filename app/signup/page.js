@@ -1,57 +1,13 @@
-"use client"; // Must be first line
+"use client";
 
-import { useState } from "react";
-import { auth } from "../../lib/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 
-export default function Signup() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+// Lazy-load the actual signup component to avoid SSR errors
+const SignupComponent = dynamic(
+  () => import("../../components/SignupComponent"),
+  { ssr: false }
+);
 
-  const handleSignup = async () => {
-    setError("");
-    if (!email || !password) {
-      setError("Please fill in both fields.");
-      return;
-    }
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      router.push("/profile"); // Redirect after signup
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  return (
-    <div className="form-container">
-      <div className="blob blob1"></div>
-      <div className="blob blob2"></div>
-
-      <div className="form-card">
-        <h2>Create Account</h2>
-        {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="btn btn-primary" onClick={handleSignup}>
-          Sign Up
-        </button>
-        <p style={{ marginTop: "20px", textAlign: "center", color: "#ccc", fontSize: "0.9rem" }}>
-          Already have an account? <a href="/login" style={{ color: "#7f5af0", textDecoration: "none" }}>Login</a>
-        </p>
-      </div>
-    </div>
-  );
+export default function SignupPage() {
+  return <SignupComponent />;
 }
