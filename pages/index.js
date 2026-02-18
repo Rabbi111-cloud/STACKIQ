@@ -6,13 +6,27 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div style={{ position: "relative", overflow: "hidden", minHeight: "100vh", background: "linear-gradient(135deg, #6e8efb, #a777e3)" }}>
-      
-      {/* Floating Bubbles */}
+    <div style={{ position: "relative", overflow: "hidden", minHeight: "100vh", fontFamily: "sans-serif" }}>
+      {/* Remove default body margin */}
+      <style global jsx>{`
+        body {
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
+
+      {/* Animated bubbles */}
       <div className="bubbles">
         {[...Array(20)].map((_, i) => (
           <div key={i} className="bubble"></div>
         ))}
+      </div>
+
+      {/* Animated colorful blobs */}
+      <div className="blobs">
+        <div className="blob blob1"></div>
+        <div className="blob blob2"></div>
+        <div className="blob blob3"></div>
       </div>
 
       {/* Navbar */}
@@ -93,7 +107,7 @@ export default function Home() {
         <p>&copy; 2026 StackIQ. All rights reserved.</p>
       </footer>
 
-      {/* Bubble animation CSS */}
+      {/* Bubble + Blob Styles */}
       <style jsx>{`
         .bubbles {
           position: absolute;
@@ -109,7 +123,7 @@ export default function Home() {
           bottom: -100px;
           width: 20px;
           height: 20px;
-          background: rgba(255,255,255,0.2);
+          background: rgba(255, 255, 255, 0.2);
           border-radius: 50%;
           animation: rise 15s infinite ease-in;
         }
@@ -119,12 +133,37 @@ export default function Home() {
           50% { opacity: 0.7; }
           100% { transform: translateY(-1200px) scale(1.2); opacity: 0; }
         }
+
+        .blobs {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          z-index: 0;
+        }
+        .blob {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(100px);
+          opacity: 0.6;
+          animation: float 20s infinite ease-in-out alternate;
+        }
+        .blob1 { width: 300px; height: 300px; background: #ff6ec7; top: 10%; left: -100px; }
+        .blob2 { width: 400px; height: 400px; background: #6ec1ff; top: 50%; left: -150px; }
+        .blob3 { width: 350px; height: 350px; background: #ffd76e; top: 70%; left: -50px; }
+        @keyframes float {
+          0% { transform: translateY(0) translateX(0); }
+          50% { transform: translateY(-50px) translateX(50px); }
+          100% { transform: translateY(0) translateX(0); }
+        }
       `}</style>
     </div>
   );
 }
 
-// Reusable button style
+// Button style
 const buttonStyle = (bgColor, hoverColor) => ({
   padding: "12px 20px",
   borderRadius: "8px",
