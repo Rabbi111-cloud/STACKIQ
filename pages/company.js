@@ -1,13 +1,27 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+"use client";
+
+import dynamic from "next/dynamic";
+
+// Dynamically import Navbar and Footer to ensure client-side rendering
+const Navbar = dynamic(() => import("../components/Navbar"), { ssr: false });
+const Footer = dynamic(() => import("../components/Footer"), { ssr: false });
 
 export default function CompanyDashboard() {
   return (
     <>
       <Navbar />
 
-      <section className="features" style={{ padding: '80px 20px' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: '3rem' }}>
+      <section
+        className="features"
+        style={{ padding: "80px 20px", maxWidth: "1200px", margin: "0 auto" }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            marginBottom: "40px",
+            fontSize: "3rem",
+          }}
+        >
           Company Dashboard
         </h2>
 
