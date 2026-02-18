@@ -1,113 +1,224 @@
+"use client";
+
 import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <div style={{ position: "relative", overflow: "hidden", minHeight: "100vh", fontFamily: "sans-serif" }}>
-      {/* Remove default body margin */}
-      <style global jsx>{`
-        body {
-          margin: 0;
-          padding: 0;
-        }
-      `}</style>
+    <div className="landing-page">
 
-      {/* Animated bubbles */}
+      {/* Navbar */}
+      <nav className="navbar">
+        <h1 className="logo">StackIQ</h1>
+        <div className="nav-links">
+          <button onClick={() => router.push("/company")} className="btn company">Company Dashboard</button>
+          <button onClick={() => router.push("/signup")} className="btn signup">Sign Up</button>
+          <button onClick={() => router.push("/login")} className="btn login">Login</button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <h1>Take Your Backend Skills to the Next Level</h1>
+        <p>Test, score, and prove your backend developer skills with our AI-powered platform.</p>
+        <div className="hero-buttons">
+          <button onClick={() => router.push("/signup")} className="btn signup">Get Started</button>
+          <button onClick={() => router.push("/login")} className="btn login">Login</button>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="features-section">
+        <div className="feature-card">
+          <h2>AI-Powered Tests</h2>
+          <p>Get scored automatically with intelligent AI evaluation.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Track Progress</h2>
+          <p>See your growth over time and improve continuously.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Join Companies</h2>
+          <p>Top companies can view your scores and invite you to interviews.</p>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <h2>What Our Users Say</h2>
+        <div className="testimonial-cards">
+          <div className="testimonial-card">
+            <p>"StackIQ helped me land my first backend developer role!"</p>
+            <p className="name">— Alice</p>
+          </div>
+          <div className="testimonial-card">
+            <p>"The AI scoring is amazing and really fair."</p>
+            <p className="name">— John</p>
+          </div>
+          <div className="testimonial-card">
+            <p>"I improved my skills faster than I thought possible!"</p>
+            <p className="name">— Sofia</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>&copy; 2026 StackIQ. All rights reserved.</p>
+      </footer>
+
+      {/* Floating bubbles */}
       <div className="bubbles">
-        {[...Array(20)].map((_, i) => (
-          <div key={i} className="bubble"></div>
-        ))}
+        {[...Array(20)].map((_, i) => <div key={i} className="bubble"></div>)}
       </div>
 
-      {/* Animated colorful blobs */}
+      {/* Colored blobs */}
       <div className="blobs">
         <div className="blob blob1"></div>
         <div className="blob blob2"></div>
         <div className="blob blob3"></div>
       </div>
 
-      {/* Navbar */}
-      <nav style={{ display: "flex", justifyContent: "space-between", padding: "20px 40px", position: "relative", zIndex: 10 }}>
-        <h1 style={{ fontWeight: "bold", fontSize: "1.8rem", color: "#fff" }}>StackIQ</h1>
-        <div style={{ display: "flex", gap: "15px" }}>
-          <button onClick={() => router.push("/company")} style={buttonStyle("#00c851", "#007e33")}>Company Dashboard</button>
-          <button onClick={() => router.push("/signup")} style={buttonStyle("#0070f3", "#005bb5")}>Sign Up</button>
-          <button onClick={() => router.push("/login")} style={buttonStyle("#ffbb33", "#ffaa00")}>Login</button>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <main style={{ textAlign: "center", padding: "120px 20px", color: "#fff", position: "relative", zIndex: 10 }}>
-        <h1 style={{ fontSize: "3rem", fontWeight: "bold", marginBottom: "20px" }}>Take Your Backend Skills to the Next Level</h1>
-        <p style={{ fontSize: "1.25rem", marginBottom: "40px" }}>
-          Test, score, and prove your backend developer skills with our AI-powered platform.
-        </p>
-        <div style={{ display: "flex", justifyContent: "center", gap: "15px" }}>
-          <button onClick={() => router.push("/signup")} style={buttonStyle("#0070f3", "#005bb5")}>Get Started</button>
-          <button onClick={() => router.push("/login")} style={buttonStyle("#ffbb33", "#ffaa00")}>Login</button>
-        </div>
-      </main>
-
-      {/* Features */}
-      <section style={{ display: "flex", justifyContent: "center", gap: "30px", flexWrap: "wrap", padding: "60px 20px", position: "relative", zIndex: 10 }}>
-        {[
-          { title: "AI-Powered Tests", desc: "Get scored automatically with intelligent AI evaluation." },
-          { title: "Track Progress", desc: "See your growth over time and improve continuously." },
-          { title: "Join Companies", desc: "Top companies can view your scores and invite you to interviews." }
-        ].map((f, i) => (
-          <div key={i} style={{
-            maxWidth: "300px",
-            textAlign: "center",
-            padding: "25px",
-            borderRadius: "15px",
-            background: "rgba(255,255,255,0.1)",
-            backdropFilter: "blur(10px)",
-            boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-            color: "#fff",
-            transition: "transform 0.3s",
-            cursor: "pointer"
-          }} onMouseEnter={e => e.currentTarget.style.transform="translateY(-10px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
-            <h2>{f.title}</h2>
-            <p>{f.desc}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* Testimonials */}
-      <section style={{ textAlign: "center", padding: "60px 20px", position: "relative", zIndex: 10 }}>
-        <h2 style={{ color: "#fff", marginBottom: "40px" }}>What Our Users Say</h2>
-        <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
-          {[
-            { name: "Alice", quote: "StackIQ helped me land my first backend developer role!" },
-            { name: "John", quote: "The AI scoring is amazing and really fair." },
-            { name: "Sofia", quote: "I improved my skills faster than I thought possible!" },
-          ].map((t, i) => (
-            <div key={i} style={{
-              maxWidth: "300px",
-              padding: "25px",
-              borderRadius: "15px",
-              background: "rgba(255,255,255,0.15)",
-              backdropFilter: "blur(10px)",
-              boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
-              color: "#fff",
-              fontStyle: "italic"
-            }}>
-              <p>"{t.quote}"</p>
-              <p style={{ fontWeight: "bold", marginTop: "10px" }}>— {t.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer style={{ textAlign: "center", padding: "20px", color: "#fff", position: "relative", zIndex: 10 }}>
-        <p>&copy; 2026 StackIQ. All rights reserved.</p>
-      </footer>
-
-      {/* Bubble + Blob Styles */}
       <style jsx>{`
-        .bubbles {
+        /* Remove top space */
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 50px;
+          position: fixed;
+          width: 100%;
+          z-index: 10;
+          background: rgba(255,255,255,0.85);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar .logo {
+          font-weight: 800;
+          font-size: 1.8rem;
+          background: linear-gradient(135deg, #9d50bb, #6e48aa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links button {
+          margin-left: 10px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 8px;
+          font-weight: 600;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .nav-links button:hover { transform: translateY(-2px); }
+
+        .btn.company { background: #00c851; }
+        .btn.signup { background: #0070f3; }
+        .btn.login { background: #ffbb33; }
+
+        /* Hero Section */
+        .hero-section {
+          padding: 140px 20px 80px 20px;
+          text-align: center;
+          background: linear-gradient(135deg, #f3e5ff, #fce4ff);
+          position: relative;
+          z-index: 5;
+        }
+        .hero-section h1 {
+          font-size: 3rem;
+          font-weight: 800;
+          background: linear-gradient(135deg, #9d50bb, #6e48aa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 20px;
+        }
+        .hero-buttons { margin-top: 30px; }
+        .hero-buttons .btn { margin: 0 10px; }
+
+        /* Features Section */
+        .features-section {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+          padding: 80px 20px;
+          background: linear-gradient(135deg, #ffe0f7, #f2e6ff);
+          position: relative;
+          z-index: 5;
+        }
+        .feature-card {
+          max-width: 300px;
+          padding: 25px;
+          border-radius: 20px;
+          background: rgba(157,80,187,0.05);
+          backdrop-filter: blur(10px);
+          text-align: center;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+          transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+
+        .feature-card h2 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          background: linear-gradient(135deg, #9d50bb, #6e48aa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+          padding: 80px 20px;
+          text-align: center;
+          background: linear-gradient(135deg, #e0fff7, #d6ffe5);
+          position: relative;
+          z-index: 5;
+        }
+        .testimonials-section h2 {
+          font-size: 2rem;
+          font-weight: 800;
+          margin-bottom: 40px;
+          background: linear-gradient(135deg, #9d50bb, #6e48aa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .testimonial-cards {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+        .testimonial-card {
+          max-width: 300px;
+          padding: 25px;
+          border-radius: 20px;
+          background: rgba(157,80,187,0.05);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+          font-style: italic;
+          color: #333;
+        }
+        .testimonial-card p.name { font-weight: 700; margin-top: 15px; color: #6e48aa; }
+
+        /* Footer */
+        .footer {
+          text-align: center;
+          padding: 20px;
+          color: #333;
+        }
+
+        /* Bubbles and blobs */
+        .bubbles, .blobs {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -118,33 +229,25 @@ export default function Home() {
         }
         .bubble {
           position: absolute;
-          bottom: -100px;
+          border-radius: 50%;
           width: 20px;
           height: 20px;
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 50%;
+          background: rgba(144, 238, 144, 0.3);
+          bottom: -100px;
           animation: rise 15s infinite ease-in;
         }
         ${[...Array(20)].map((_, i) => `.bubble:nth-child(${i+1}) { left: ${Math.random()*100}%; animation-duration: ${10+Math.random()*10}s; width: ${10+Math.random()*30}px; height: ${10+Math.random()*30}px; }`).join("\n")}
+
         @keyframes rise {
-          0% { transform: translateY(0) scale(1); opacity: 0.4; }
+          0% { transform: translateY(0) scale(1); opacity: 0.3; }
           50% { opacity: 0.7; }
           100% { transform: translateY(-1200px) scale(1.2); opacity: 0; }
         }
 
-        .blobs {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          overflow: hidden;
-          z-index: 0;
-        }
         .blob {
           position: absolute;
           border-radius: 50%;
-          filter: blur(100px);
+          filter: blur(120px);
           opacity: 0.6;
           animation: float 20s infinite ease-in-out alternate;
         }
@@ -160,16 +263,3 @@ export default function Home() {
     </div>
   );
 }
-
-// Button style
-const buttonStyle = (bgColor, hoverColor) => ({
-  padding: "12px 20px",
-  borderRadius: "8px",
-  backgroundColor: bgColor,
-  color: "#fff",
-  fontWeight: "bold",
-  border: "none",
-  cursor: "pointer",
-  transition: "0.3s",
-  fontSize: "1rem",
-});
